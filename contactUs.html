@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/94da306be0.js" crossorigin="anonymous"></script>
+
+    <!-- Sweet alert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="styles2.css">
+    <title>Contact Us</title>
+</head>
+<body>
+    <div class="container" id="blur">
+        <span class="big-circle"></span>
+        <div class="form">
+
+            <!-- Contact info -->
+            <div class="contact-info">
+                <h3 class="title">Let's get in touch</h3>
+                <p class="text">Want to get in touch? We'd love to hear from you. Here's how you can reach us... </p>
+
+                <div class="info">
+                    <div class="information">
+                        <img src="image/location.png" alt="" class="icon">
+                        <p>98 San Jose Corner C. Lawis Street, Antipolo, Rizal, Philippines</p>
+                    </div>
+                    <div class="information">
+                        <img src="image/email.png" alt="" class="icon">
+                        <p>supportcryptosphere@gmail.com</p>
+                    </div>
+                    <div class="information">
+                        <img src="image/telephone.png" alt="" class="icon">
+                        <p>+63 970 233 2393</p>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <p>Connect with us:</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram-square"></i></a>
+                    </div>
+                </div>
+            
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <span class="circle one"></span>
+                <span class="circle two"></span>
+
+                <form action="#">
+                    <h3 class="title">Contact Us</h3>
+                    <div class="input-container">
+                        <input type="text" id="name" class="input">
+                        <label for="name">Username</label>
+                        <span>Username</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="email" id="email" class="input">
+                        <label for="email">Email</label>
+                        <span>Email</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="tel" id="phone" class="input">
+                        <label for="tel">Phone</label>
+                        <span>Phone</span>
+                    </div>
+                    <div class="input-container textarea">
+                        <textarea id="message" class="input" ></textarea>
+                        <label for="message">Message</label>
+                        <span>Message</span>
+                    </div>
+                    <div class="btn-container">
+                        <button type="submit" class="btn" onclick="showPopUp()" id="btn">Send</button>
+                    </div>
+                </form>
+                             
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <img src="image/check2.png">
+        <h2>Thank you</h2>
+        <p>Your message has been successfully submitted!</p>
+        <button type="button" onclick="remPopUp()" id="">Ok</button>
+    </div>
+
+
+    <script>
+        const inputs = document.querySelectorAll('.input');
+
+        function focusFunc() {
+            let parent = this.parentNode;
+            parent.classList.add('focus');
+        }
+
+        function blurFunc(){
+            let parent = this.parentNode;
+            if(this.value == ''){
+                parent.classList.remove('focus')
+            };
+        }
+        
+        inputs.forEach((input) => {
+            input.addEventListener('focus', focusFunc)
+            input.addEventListener('blur', blurFunc)
+        })
+
+        // Buttons
+
+        let popup = document.getElementById('popup');
+        let blur = document.getElementById('blur');
+
+        function showPopUp() {
+            // blur.classList.toggle('active');
+            // popup.classList.add('show-popup');
+            Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Thank You! <br><br>Your message has been sent!',
+            showConfirmButton: false,
+            timer: 1500
+            })
+        }
+
+        // function remPopUp() {
+        //     blur.classList.toggle('active');
+        //     popup.classList.remove('show-popup');
+        // }
+
+      
+    </script>
+
+
+
+
+</body>
+</html>
